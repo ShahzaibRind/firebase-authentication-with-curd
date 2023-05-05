@@ -15,11 +15,9 @@ function App() {
   const { darkMode } = useContext(DarkModeContext);
   const {currentUser} = useContext(AuthContext)
   // const currentUser = false;
-
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to={"/login"} />;
   };
-  console.log(currentUser);
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
@@ -58,7 +56,7 @@ function App() {
               }
               />
             </Route>
-            <Route path="products">
+            <Route path="profile">
               <Route index element={
                <RequireAuth>
                <List />
